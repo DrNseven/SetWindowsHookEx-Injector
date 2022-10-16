@@ -6,7 +6,6 @@ using namespace std;
 int wmain(int argc, wchar_t* argv[], wchar_t* envp[]) {
 	wchar_t* dllPath = argv[1];
 
-
 	if (GetFileAttributes(dllPath) == INVALID_FILE_ATTRIBUTES) {
 		cout << "[ FAILED ] DLL file does not exist." << endl;
 		system("pause");
