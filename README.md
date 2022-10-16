@@ -18,4 +18,4 @@ HMODULE dll = LoadLibraryEx(L"test.dll", NULL, DONT_RESOLVE_DLL_REFERENCES); //<
 
 4. Compile & done
 
-Usage: hookloader.exe (dllname).dll / drag (dllname).dll into hookloader.exe
+Usage: hookloader.exe (dllname).dll or drag (dllname).dll into hookloader.exe
