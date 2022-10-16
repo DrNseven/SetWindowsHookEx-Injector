@@ -18,5 +18,5 @@ HMODULE dll = LoadLibraryEx(L"test.dll", NULL, DONT_RESOLVE_DLL_REFERENCES); //<
 
 4. Compile & done
 
-Usage: hookloader.exe (dllname).dll or drag (dllname).dll into hookloader.exe
-UC Thread: https://www.unknowncheats.me/forum/valorant/518015-p100-dll-injector.html
+-Usage: hookloader.exe (dllname).dll or drag (dllname).dll into hookloader.exe
+-UC Thread: https://www.unknowncheats.me/forum/valorant/518015-p100-dll-injector.html
