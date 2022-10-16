@@ -46,7 +46,7 @@ int wmain(int argc, wchar_t* argv[], wchar_t* envp[]) {
 	}
 
 	// Setting the hook in the hook chain
-	HHOOK handle = SetWindowsHookExW(WH_GETMESSAGE, addr, dll, tid); // Or WH_KEYBOARD if you prefer to trigger the hook manually
+	HHOOK handle = SetWindowsHookEx(WH_GETMESSAGE, addr, dll, tid); // Or WH_KEYBOARD if you prefer to trigger the hook manually
 	if (handle == NULL) {
 		cout << "[ FAILED ] Couldn't set the hook with SetWindowsHookEx." << endl;
 		system("pause");
