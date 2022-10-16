@@ -3,7 +3,15 @@
 
 using namespace std;
 
-int main() {
+int wmain(int argc, wchar_t* argv[], wchar_t* envp[]) {
+	wchar_t* dllPath;
+	dllPath = argv[1];
+
+	if (GetFileAttributes(dllPath) == INVALID_FILE_ATTRIBUTES) {
+		cout << "[ FAILED ] DLL file does not exist." << endl;
+		system("pause");
+		return EXIT_FAILURE;
+	}
 
 	HWND hwnd = FindWindowW(L"UnrealWindow", NULL); //<------------------------------------ game window
 	if (hwnd == NULL) {
@@ -22,7 +30,7 @@ int main() {
 	}
 
 	// Loading DLL
-	HMODULE dll = LoadLibraryEx(L"test.dll", NULL, DONT_RESOLVE_DLL_REFERENCES); //<------------------------------------ DLL
+	HMODULE dll = LoadLibraryEx(dllPath, NULL, DONT_RESOLVE_DLL_REFERENCES); //<------------------------------------ DLL
 	if (dll == NULL) {
 		cout << "[ FAILED ] The DLL could not be found." << endl;
 		system("pause");
