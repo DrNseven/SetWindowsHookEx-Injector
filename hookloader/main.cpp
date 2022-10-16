@@ -13,7 +13,7 @@ int wmain(int argc, wchar_t* argv[], wchar_t* envp[]) {
 		return EXIT_FAILURE;
 	}
 
-	HWND hwnd = FindWindowW(L"UnrealWindow", NULL); //<------------------------------------ game window
+	HWND hwnd = FindWindowW(L"UnrealWindow", NULL); //Game window classname
 	if (hwnd == NULL) {
 		cout << "[ FAILED ] Could not find target window." << endl;
 		system("pause");
@@ -30,7 +30,7 @@ int wmain(int argc, wchar_t* argv[], wchar_t* envp[]) {
 	}
 
 	// Loading DLL
-	HMODULE dll = LoadLibraryEx(dllPath, NULL, DONT_RESOLVE_DLL_REFERENCES); //<------------------------------------ DLL
+	HMODULE dll = LoadLibraryEx(dllPath, NULL, DONT_RESOLVE_DLL_REFERENCES); //Loading dll from params
 	if (dll == NULL) {
 		cout << "[ FAILED ] The DLL could not be found." << endl;
 		system("pause");
@@ -38,7 +38,7 @@ int wmain(int argc, wchar_t* argv[], wchar_t* envp[]) {
 	}
 
 	// Getting exported function address
-	HOOKPROC addr = (HOOKPROC)GetProcAddress(dll, "NextHook"); //<------------------------------------ export see dllmain.cpp "C" __declspec(dllexport) int NextHook(int code, WPARAM wParam, LPARAM lParam)
+	HOOKPROC addr = (HOOKPROC)GetProcAddress(dll, "NextHook"); //export see dllmain.cpp "C" __declspec(dllexport) int NextHook(int code, WPARAM wParam, LPARAM lParam)
 	if (addr == NULL) {
 		cout << "[ FAILED ] The function was not found." << endl;
 		system("pause");
