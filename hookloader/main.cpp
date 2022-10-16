@@ -4,9 +4,8 @@
 using namespace std;
 
 int main() {
-	// Finding target window
-	//HWND hwnd = FindWindow(NULL, L"Apex Legends"); //<------------------------------------ game window
-	HWND hwnd = FindWindow(NULL, L"UnrealTournament "); //<------------------------------------ game window
+
+	HWND hwnd = FindWindowW(L"UnrealWindow", NULL); //<------------------------------------ game window
 	if (hwnd == NULL) {
 		cout << "[ FAILED ] Could not find target window." << endl;
 		system("pause");
@@ -39,7 +38,7 @@ int main() {
 	}
 
 	// Setting the hook in the hook chain
-	HHOOK handle = SetWindowsHookEx(WH_GETMESSAGE, addr, dll, tid); // Or WH_KEYBOARD if you prefer to trigger the hook manually
+	HHOOK handle = SetWindowsHookExW(WH_GETMESSAGE, addr, dll, tid); // Or WH_KEYBOARD if you prefer to trigger the hook manually
 	if (handle == NULL) {
 		cout << "[ FAILED ] Couldn't set the hook with SetWindowsHookEx." << endl;
 		system("pause");
