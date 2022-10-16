@@ -17,3 +17,5 @@ HWND hwnd = FindWindow(L"UnrealWindow", NULL); //<-- game window class example f
 HMODULE dll = LoadLibraryEx(L"test.dll", NULL, DONT_RESOLVE_DLL_REFERENCES); //<-- DLL name
 
 4. Compile & done
+
+Injector Usage: hookloader.exe (dllname).dll / drag (dllname).dll into hookloader.exe
