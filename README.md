@@ -16,5 +16,3 @@ HWND hwnd = FindWindow(L"UnrealWindow", NULL); //<-- game window class example f
 3. Compile & done
 
 Usage: hookloader.exe (dllname).dll or drag (dllname).dll into hookloader.exe
-
-UC Thread: https://www.unknowncheats.me/forum/valorant/518015-p100-dll-injector.html
