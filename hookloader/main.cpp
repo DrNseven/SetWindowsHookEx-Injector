@@ -3,10 +3,16 @@
 
 using namespace std;
 
-int main() {
-	// Finding target window
-	//HWND hwnd = FindWindow(NULL, L"Apex Legends"); //<------------------------------------ game window
-	HWND hwnd = FindWindow(NULL, L"UnrealTournament "); //<------------------------------------ game window
+int wmain(int argc, wchar_t* argv[], wchar_t* envp[]) {
+	wchar_t* dllPath = argv[1];
+
+	if (GetFileAttributes(dllPath) == INVALID_FILE_ATTRIBUTES) {
+		cout << "[ FAILED ] DLL file does not exist." << endl;
+		system("pause");
+		return EXIT_FAILURE;
+	}
+
+	HWND hwnd = FindWindowW(L"UnrealWindow", NULL); //Game window classname
 	if (hwnd == NULL) {
 		cout << "[ FAILED ] Could not find target window." << endl;
 		system("pause");
@@ -23,7 +29,7 @@ int main() {
 	}
 
 	// Loading DLL
-	HMODULE dll = LoadLibraryEx(L"test.dll", NULL, DONT_RESOLVE_DLL_REFERENCES); //<------------------------------------ DLL
+	HMODULE dll = LoadLibraryEx(dllPath, NULL, DONT_RESOLVE_DLL_REFERENCES); //Loading dll from params
 	if (dll == NULL) {
 		cout << "[ FAILED ] The DLL could not be found." << endl;
 		system("pause");
@@ -31,7 +37,7 @@ int main() {
 	}
 
 	// Getting exported function address
-	HOOKPROC addr = (HOOKPROC)GetProcAddress(dll, "NextHook"); //<------------------------------------ export see dllmain.cpp "C" __declspec(dllexport) int NextHook(int code, WPARAM wParam, LPARAM lParam)
+	HOOKPROC addr = (HOOKPROC)GetProcAddress(dll, "NextHook"); //export see dllmain.cpp "C" __declspec(dllexport) int NextHook(int code, WPARAM wParam, LPARAM lParam)
 	if (addr == NULL) {
 		cout << "[ FAILED ] The function was not found." << endl;
 		system("pause");
